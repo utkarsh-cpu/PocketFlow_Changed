@@ -48,7 +48,6 @@ class Flow(BaseNode):
         while curr: curr.set_params(p); last_action=curr._run(shared); curr=copy.copy(self.get_next_node(curr,last_action))
         return last_action
     def _run(self,shared): p=self.prep(shared); o=self._orch(shared); return self.post(shared,p,o)
-    def post(self,shared,prep_res,exec_res): return exec_res
 
 class BatchFlow(Flow):
     def _run(self,shared):
